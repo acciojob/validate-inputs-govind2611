@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+<style>
+  .valid {
+    background-color: lightgreen;
+  }
+  .invalid {
+    background-color: pink;
+  }
+</style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" oninput="validateName()" required><br><br>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" oninput="validateEmail()" required><br><br>
+
+  <label for="mobile">Mobile:</label>
+  <input type="text" id="mobile" oninput="validateMobile()" required><br><br>
+</form>
+
+<script>
+function validateName() {
+  const nameInput = document.getElementById("name");
+  const namePattern = /^[A-Za-z]{3,}$/;
+  
+  if (namePattern.test(nameInput.value)) {
+    nameInput.classList.remove("invalid");
+    nameInput.classList.add("valid");
+  } else {
+    nameInput.classList.remove("valid");
+    nameInput.classList.add("invalid");
+  }
+}
+
+function validateEmail() {
+  const emailInput = document.getElementById("email");
+  const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+  
+  if (emailPattern.test(emailInput.value)) {
+    emailInput.classList.remove("invalid");
+    emailInput.classList.add("valid");
+  } else {
+    emailInput.classList.remove("valid");
+    emailInput.classList.add("invalid");
+  }
+}
+
+function validateMobile() {
+  const mobileInput = document.getElementById("mobile");
+  const mobilePattern = /^[0-9]{10}$/;
+  
+  if (mobilePattern.test(mobileInput.value)) {
+    mobileInput.classList.remove("invalid");
+    mobileInput.classList.add("valid");
+  } else {
+    mobileInput.classList.remove("valid");
+    mobileInput.classList.add("invalid");
+  }
+}
 </script>
 
 </body>
-
 </html>
